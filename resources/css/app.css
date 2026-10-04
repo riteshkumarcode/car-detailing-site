@@ -11,8 +11,28 @@
         line-height: 1.55;
         color: #13262B;
         background-color: #EEF2F0;
-        scroll-behavior: smooth;
         -webkit-font-smoothing: antialiased;
+    }
+
+    /* Lenis Smooth Scrolling Optimizations */
+    html.lenis, html.lenis body {
+        height: auto;
+    }
+
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+        overflow: hidden;
+    }
+
+    .lenis.lenis-scrolling iframe {
+        pointer-events: none;
     }
 
     h1, h2, h3, h4, h5, h6 {

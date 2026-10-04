@@ -14,19 +14,19 @@ export function initMotion() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isLowPower = navigator.connection?.saveData || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2);
 
-    // 2. Desktop Smooth Scrolling via Lenis (Disabled on mobile/touch & low power for optimal battery & 60fps)
-    const isDesktop = window.innerWidth >= 1024 && !('ontouchstart' in window);
+    // 2. Ultra-smooth momentum scrolling via Lenis
     let lenis = null;
 
-    if (isDesktop && !prefersReducedMotion && !isLowPower) {
+    if (!prefersReducedMotion && !isLowPower) {
         lenis = new Lenis({
-            duration: 1.1,
+            duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: 'vertical',
             gestureOrientation: 'vertical',
             smoothWheel: true,
             wheelMultiplier: 1.0,
-            touchMultiplier: 2.0,
+            touchMultiplier: 1.5,
+            infinite: false,
         });
 
         lenis.on('scroll', ScrollTrigger.update);
@@ -36,6 +36,8 @@ export function initMotion() {
         });
 
         gsap.ticker.lagSmoothing(0);
+
+        window.__lenis = lenis;
     }
 
     // 3. Initialize Motion Modules
