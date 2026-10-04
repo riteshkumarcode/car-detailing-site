@@ -1,0 +1,16 @@
+{
+  "name": "The Drive Clinic",
+  "short_name": "Drive Clinic",
+  "description": "Your Car's Healthcare Centre in Jammu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEF2F0",
+  "theme_color": "#163F3A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+# ==============================================================================
+# Netlify Configuration — The Drive Clinic
+# ==============================================================================
+
+[build]
+  publish = "dist"
+  command = "echo 'Deploying static build of The Drive Clinic'"
+
+# Security & Best Practice Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache immutable Vite compiled assets for 1 year
+[[headers]]
+  for = "/build/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Static Pretty URLs for Services
+[[redirects]]
+  from = "/services/ceramic-coating-9h"
+  to = "/services/ceramic-coating-9h/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/engine-bay-decontamination"
+  to = "/services/engine-bay-decontamination/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/essential-foam-wash"
+  to = "/services/essential-foam-wash/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/interior-deep-clean"
+  to = "/services/interior-deep-clean/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/paint-correction-gloss"
+  to = "/services/paint-correction-gloss/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/underbody-anti-rust"
+  to = "/services/underbody-anti-rust/index.html"
+  status = 200
+
+# ==============================================================================
+# Hybrid Backend Proxies (Uncomment when Laravel backend is hosted on Railway/Render/VPS)
+# ==============================================================================
+# [[redirects]]
+#   from = "/admin/*"
+#   to = "https://api.yourdomain.com/admin/:splat"
+#   status = 200
+#   force = true
+#
+# [[redirects]]
+#   from = "/livewire/*"
+#   to = "https://api.yourdomain.com/livewire/:splat"
+#   status = 200
+#   force = true
+#
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://api.yourdomain.com/api/:splat"
+#   status = 200
+#   force = true
+
+# 404 Fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

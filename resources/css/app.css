@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Barlow', system-ui, -apple-system, sans-serif;
+        font-size: 17px;
+        line-height: 1.55;
+        color: #13262B;
+        background-color: #EEF2F0;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Archivo', sans-serif;
+        font-weight: 800;
+        font-stretch: 116%;
+        letter-spacing: -0.01em;
+        line-height: 1.05;
+        color: #13262B;
+    }
+}
+
+@layer components {
+    /* Brand Buttons */
+    .btn-primary {
+        @apply min-h-[52px] px-6 py-3 rounded-[10px] font-bold text-ink bg-amber hover:bg-amber-400 active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 select-none shadow-sm;
+    }
+
+    .btn-secondary {
+        @apply min-h-[52px] px-6 py-3 rounded-[10px] font-bold text-ink border-2 border-ink hover:bg-ink hover:text-white active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 select-none;
+    }
+
+    .btn-light {
+        @apply min-h-[52px] px-6 py-3 rounded-[10px] font-bold text-white border-2 border-white/80 hover:bg-white hover:text-ink active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 select-none;
+    }
+
+    .btn-teal {
+        @apply min-h-[52px] px-6 py-3 rounded-[10px] font-bold text-white bg-teal hover:bg-teal-deep active:scale-[0.98] transition-all duration-150 inline-flex items-center justify-center gap-2 select-none shadow-sm;
+    }
+
+    /* Number Plate Badge */
+    .plate-badge {
+        @apply inline-flex items-stretch bg-white border-2 border-ink rounded-[6px] overflow-hidden shadow-sm select-none;
+    }
+    .plate-badge-ind {
+        @apply bg-[#003399] text-white font-bold text-[10px] px-1.5 flex flex-col items-center justify-center leading-none;
+    }
+    .plate-badge-number {
+        @apply font-display font-extrabold text-ink px-2.5 py-1 tracking-wider text-[15px] uppercase;
+    }
+
+    /* Hairline Cards */
+    .card-panel {
+        @apply bg-paper border border-line rounded-[12px] p-6;
+    }
+}

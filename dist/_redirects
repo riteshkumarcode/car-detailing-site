@@ -1,0 +1,19 @@
+# ==============================================================================
+# Netlify Redirects & Proxies — The Drive Clinic
+# ==============================================================================
+
+# Hybrid API & Admin Proxy (uncomment and replace URL when Laravel backend is deployed):
+# /admin/*      https://your-laravel-api.example.com/admin/:splat      200!
+# /livewire/*   https://your-laravel-api.example.com/livewire/:splat   200!
+# /api/*        https://your-laravel-api.example.com/api/:splat        200!
+
+# Pretty URL routing
+/services/ceramic-coating-9h    /services/ceramic-coating-9h/index.html    200
+/services/engine-bay-decontamination /services/engine-bay-decontamination/index.html 200
+/services/essential-foam-wash   /services/essential-foam-wash/index.html   200
+/services/interior-deep-clean   /services/interior-deep-clean/index.html   200
+/services/paint-correction-gloss /services/paint-correction-gloss/index.html 200
+/services/underbody-anti-rust   /services/underbody-anti-rust/index.html   200
+
+# 404 Fallback
+/*    /404.html    404
