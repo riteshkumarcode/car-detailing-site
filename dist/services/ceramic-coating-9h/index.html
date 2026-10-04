@@ -180,6 +180,82 @@
             </div>
 
             
+                            <div class="space-y-3">
+                    <span class="text-[12px] font-bold uppercase tracking-wider text-teal block">Real Studio Result • Drag to Compare</span>
+                    <div
+    x-data="{
+        sliderPos: 50,
+        isDragging: false,
+        updatePos(e) {
+            const rect = this.$refs.container.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+            this.sliderPos = Math.round((x / rect.width) * 100);
+        }
+    }"
+    class="card-panel overflow-hidden p-0 bg-white shadow-card flex flex-col group"
+    data-motion="before-after-slider"
+>
+    
+    <div
+        x-ref="container"
+        @mousedown="isDragging = true; updatePos($event)"
+        @mousemove="if (isDragging) updatePos($event)"
+        @mouseup="isDragging = false"
+        @mouseleave="isDragging = false"
+        @touchstart="isDragging = true; updatePos($event)"
+        @touchmove="if (isDragging) updatePos($event)"
+        @touchend="isDragging = false"
+        class="relative w-full aspect-[16/10] sm:aspect-[16/9] overflow-hidden select-none cursor-ew-resize bg-mist"
+    >
+        
+        <div class="absolute inset-0 w-full h-full flex flex-col items-center justify-center text-center p-6 bg-paper">
+                            <img src="/images/paint-after.jpg" alt="Swirl Removal &amp; High-Gloss Ceramic Finish After" class="w-full h-full object-cover">
+                        <span class="absolute bottom-3 right-3 bg-teal text-white font-display font-bold text-[12px] px-2.5 py-1 rounded-[6px] tracking-wider shadow-sm">
+                AFTER
+            </span>
+        </div>
+
+        
+        <div
+            class="absolute inset-0 h-full overflow-hidden bg-[#E2E8E5] border-r-2 border-white shadow-lg"
+            :style="`width: ${sliderPos}%;`"
+        >
+            <div class="absolute inset-0 w-full h-full min-w-[300px] flex flex-col items-center justify-center text-center p-6" style="background-image: repeating-linear-gradient(45deg, #CBD5D1 0, #CBD5D1 10px, #DDE8E3 10px, #DDE8E3 20px);">
+                                    <img src="/images/paint-before.jpg" alt="Swirl Removal &amp; High-Gloss Ceramic Finish Before" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-ink text-white font-display font-bold text-[12px] px-2.5 py-1 rounded-[6px] tracking-wider shadow-sm">
+                    BEFORE
+                </span>
+            </div>
+        </div>
+
+        
+        <div
+            class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize flex items-center justify-center pointer-events-none"
+            :style="`left: ${sliderPos}%; transform: translateX(-50%);`"
+        >
+            <div class="w-9 h-9 rounded-full bg-amber text-ink font-bold shadow-xl border-2 border-white flex items-center justify-center">
+                <svg class="w-4 h-4 text-ink stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7l-5 5 5 5m8-10l5 5-5 5" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-line/60 bg-white">
+        <div>
+            <h4 class="font-display font-bold text-[17px] text-ink leading-tight">Swirl Removal &amp; High-Gloss Ceramic Finish</h4>
+            <p class="text-[14px] text-muted mt-0.5">Vehicle: <strong class="text-ink">Mahindra Thar (Napoli Black)</strong> • 9H Graphene Ceramic Coating Shield</p>
+        </div>
+        <a href="/services" class="font-bold rounded-[10px] inline-flex items-center justify-center gap-2 select-none active:scale-[0.98] transition-all duration-150 focus:outline-none focus:ring-3 focus:ring-amber focus:ring-offset-2 bg-transparent text-ink border-2 border-ink hover:bg-ink hover:text-white min-h-[44px] px-4 py-2 text-[15px]">
+        Explore Service
+    </a>
+    </div>
+</div>
+                </div>
+            
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="card-panel bg-white space-y-2 border-l-4 border-brick">
                     <span class="text-[12px] font-bold uppercase tracking-wider text-brick">The Problem It Solves</span>
@@ -478,6 +554,6 @@
 </a>
 
     <!-- Livewire Scripts -->
-<script src="/livewire/livewire.js?id=dfa5f5ee"   data-csrf="EQ1g7pq5Ueexn5O7w0LbzR73wXhJiHIyLkrycbtl" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+<script src="/livewire/livewire.js?id=dfa5f5ee"   data-csrf="NKvdtKNULIlY7jiMkRxrFmkjOqqUjLh01Kp935yW" data-update-uri="/livewire/update" data-navigate-once="true"></script>
 </body>
 </html>

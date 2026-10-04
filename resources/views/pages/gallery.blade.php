@@ -76,6 +76,8 @@
                     :carModel="$item->car_model"
                     :problem="$item->problem_description"
                     :service="$item->service_name"
+                    :beforeImage="$item->before_image_path"
+                    :afterImage="$item->after_image_path"
                 />
             </div>
         @endforeach

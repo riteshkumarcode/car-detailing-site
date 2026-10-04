@@ -318,6 +318,48 @@
 </section>
 
 {{-- ========================================================================= --}}
+{{-- 3B. STUDIO DIAGNOSTIC BAY SHOWCASE --}}
+{{-- ========================================================================= --}}
+<section class="py-12 sm:py-16 bg-white border-t border-line overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="card-panel p-0 overflow-hidden bg-ink rounded-3xl border border-teal-deep/30 shadow-2xl relative group">
+            <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] overflow-hidden">
+                <img
+                    src="{{ asset('images/hero-studio-bay.jpg') }}"
+                    alt="The Drive Clinic Detailing Bay in Nanak Nagar, Jammu"
+                    class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                    loading="lazy"
+                >
+                {{-- Theme Gradient Overlay --}}
+                <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
+
+                {{-- Studio Badges & Info Floating Overlay --}}
+                <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6 z-10">
+                    <div class="space-y-2 max-w-xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal text-white font-bold text-[12px] tracking-wide uppercase shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-amber animate-pulse"></span>
+                            <span>Studio Bay 01 • Nanak Nagar, Jammu</span>
+                        </div>
+                        <h3 class="font-display font-extrabold text-[26px] sm:text-[34px] text-white tracking-tight leading-tight">
+                            Jammu's First Cosmetic Healthcare Studio
+                        </h3>
+                        <p class="text-[15px] sm:text-[16px] text-white/80 leading-relaxed font-body">
+                            Purpose-built detailing bays with high-CRI color inspection lighting, hydraulic ramp lifts, and hospital-grade air & steam filtration.
+                        </p>
+                    </div>
+
+                    <div class="shrink-0 flex items-center gap-3">
+                        <x-button variant="primary" size="lg" :href="route('book')">
+                            Experience the studio
+                        </x-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- ========================================================================= --}}
 {{-- 4. "WE DON'T JUST WASH. WE DIAGNOSE." (HAIRLINE-DIVIDED PANEL) --}}
 {{-- ========================================================================= --}}
 <section class="py-16 sm:py-24 bg-mist">
@@ -469,6 +511,8 @@
                     :carModel="$item->car_model"
                     :problem="$item->problem_description"
                     :service="$item->service_name"
+                    :beforeImage="$item->before_image_path"
+                    :afterImage="$item->after_image_path"
                 />
             @endforeach
         </div>

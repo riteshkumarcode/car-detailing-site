@@ -35,6 +35,33 @@
                 </p>
             </div>
 
+            {{-- Service Visual Showcase --}}
+            @if(str_contains($service->slug, 'paint') || str_contains($service->slug, 'ceramic'))
+                <div class="space-y-3">
+                    <span class="text-[12px] font-bold uppercase tracking-wider text-teal block">Real Studio Result • Drag to Compare</span>
+                    <x-before-after-slider
+                        title="Swirl Removal & High-Gloss Ceramic Finish"
+                        carModel="Mahindra Thar (Napoli Black)"
+                        problem="Swirl marks & spiderweb wash scratches"
+                        service="{{ $service->name }}"
+                        beforeImage="images/paint-before.jpg"
+                        afterImage="images/paint-after.jpg"
+                    />
+                </div>
+            @else
+                <div class="rounded-3xl overflow-hidden shadow-card border border-line relative group">
+                    <img
+                        src="{{ asset('images/hero-studio-bay.jpg') }}"
+                        alt="{{ $service->name }} Detailing Bay in Jammu"
+                        class="w-full aspect-[21/9] object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                    >
+                    <div class="absolute bottom-3 left-4 right-4 bg-ink/80 backdrop-blur-sm text-white px-4 py-2 rounded-xl text-[13px] font-semibold flex items-center justify-between">
+                        <span>Clinic Bay 01 • Nanak Nagar, Jammu</span>
+                        <span class="text-amber">2-Bucket Swirl-Free Guarantee</span>
+                    </div>
+                </div>
+            @endif
+
             {{-- The Problem Solved & Who It's For --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="card-panel bg-white space-y-2 border-l-4 border-brick">
